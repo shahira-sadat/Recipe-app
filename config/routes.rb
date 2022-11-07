@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :foods
   # this root will be used later on
   # root "users#index"
   resources :users do
