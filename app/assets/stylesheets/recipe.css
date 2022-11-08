@@ -1,0 +1,38 @@
+.recipe-ul {
+  width: 75%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.recipe-li {
+  width: 80%;
+  border: 2px solid #000;
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.recipe-link   {
+  color: #000;
+  text-decoration: none;
+}
+
+.recipe-li-div {
+  width: 40%;
+}
+
+.recipe-delete {
+z-index: 50;
+
+}
+.recipe-p {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
