@@ -9,7 +9,7 @@
       <%= link_to user_recipe_path(id: recipe), class: "recipe-link" do %>
           <h2> <%= recipe.name %></h2>
       <% end %>
-          <%= button_to "remove recipe", user_recipe_path(id: recipe), method: :delete, class: "recipe-delete" %>
+          <%= button_to "remove recipe", user_recipe_path(id: recipe), method: :delete %>
         </div>
         <p class="recipe-p"><%= recipe.description %></p>
     </li>

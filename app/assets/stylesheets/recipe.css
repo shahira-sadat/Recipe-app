@@ -26,10 +26,6 @@
   width: 40%;
 }
 
-.recipe-delete {
-z-index: 50;
-
-}
 .recipe-p {
   width: 50%;
   display: flex;
