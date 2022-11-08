@@ -1,9 +1,20 @@
-<h1>New food</h1>
+<%= form_with model: @food do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
 
-<%= render "form", food: @food %>
-
-<br>
-
+  <div>
+    <%= form.label :measurement_unit %><br>
+    <%= form.text_field :measurement_unit %>
+  </div>
 <div>
-  <%= link_to "Back to foods", foods_path %>
-</div>
+    <%= form.label :price %><br>
+    <%= form.number_field :price %>
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
