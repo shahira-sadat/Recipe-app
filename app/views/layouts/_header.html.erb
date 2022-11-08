@@ -1,7 +1,0 @@
-<header>
-<% if user_signed_in? %>
-  <%= link_to 'log-out', logout_path %>
-<% else %>
-  <%= link_to 'log-in', new_user_session_path %>
-<% end %>
-</header>
