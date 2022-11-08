@@ -10,11 +10,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render 'layouts/header' %>
     <h1 class= "m-2 d-flex justify-content-between align-items-center"> Recipe app</h1>
-  <a class= "mx-2 "> <%= link_to 'food_list', foods_path %>
-   </a>
+    <a class= "mx-2 ">
+      <%= link_to 'food_list', foods_path %>
+    </a>
     <%= yield %>
   </body>
 </html>
