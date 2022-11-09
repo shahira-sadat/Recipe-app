@@ -12,9 +12,9 @@
   </head>
   <body>
     <% if current_user %>
-      <%= render 'devise/shared/navbar' %>
+      <%= render partial: "shared/navbar" %>
     <% end %>
-    <%= render 'devise/shared/flash' %>
+    <%= render partial: "shared/flash" %>
     <%= yield %>
   </body>
 </html>
