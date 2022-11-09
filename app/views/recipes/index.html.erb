@@ -9,7 +9,9 @@
         <%= link_to recipe_path(id: recipe), class: "recipe-link" do %>
           <h2> <%= recipe.name %></h2>
         <% end %>
+        <% if can? :destroy, recipe%>
         <%= button_to "remove recipe", recipe_path(user_id: current_user,id: recipe), method: :delete %>
+        <% end %>
       </div>
       <p class="recipe-p"><%= recipe.description %></p>
     </li>

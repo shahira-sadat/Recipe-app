@@ -5,7 +5,7 @@ class Ability
     can :read, Recipe, public: true
     return unless user.present?
 
-    can :read, :all, user: user
+    can :read, :Recipe, user: user
     can :create, :all
     can :destroy, :all, user: user
   end
