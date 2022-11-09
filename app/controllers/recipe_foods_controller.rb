@@ -16,11 +16,16 @@ class RecipeFoodsController < ApplicationController
 
   # POST /recipe_foods or /recipe_foods.json
   def create
-    @recipe_food = RecipeFood.new(recipe_food_params)
+    @recipe_food = RecipeFood.new(quantity: recipe_food_params[:quantity])
+    p recipe_food_params
+    @recipe_food.food_id = Food.find_by(name: recipe_food_params[:food_name]).id
+    @recipe_food.recipe_id = Recipe.find(recipe_food_params[:recipe_id]).id
+    p @recipe_food
+
 
     respond_to do |format|
       if @recipe_food.save
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.' }
+        format.html { redirect_to recipe_url(@recipe_food.recipe_id), notice: 'Recipe food was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -32,8 +37,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to recipe_url, notice: 'Recipe food was successfully destroyed.' }
     end
   end
 
@@ -46,6 +50,6 @@ class RecipeFoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_food_params
-    params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
+    params.require(:recipe_food).permit(:food_name, :quantity, :recipe_id)
   end
 end
