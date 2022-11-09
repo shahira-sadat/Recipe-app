@@ -12,7 +12,7 @@
         <% if current_user %>
         <li class="nav-item mx-2">
         <% if user_signed_in?%>
-          <%= link_to "My Recipes", "/users/#{current_user.id}/recipes", class: "nav-link active" %>
+          <%= link_to "My Recipes", recipes_path, class: "nav-link active" %>
           <%end%>
         </li>
         <% end %>

@@ -1,5 +1,5 @@
 <h1>New recipe</h1>
-<%= form_with(model: @recipe, url: user_recipes_path(user_id: current_user)) do |form| %>
+<%= form_with(model: @recipe) do |form| %>
   <% if @recipe.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -36,5 +36,5 @@
 <% end %>
 <br>
 <div>
-  <%= link_to "Back to recipes", user_recipes_path %>
+  <%= link_to "Back to recipes", recipes_path %>
 </div>

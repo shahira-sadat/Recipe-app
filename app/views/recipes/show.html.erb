@@ -1,4 +1,4 @@
-  <%= link_to "Back to recipes", user_recipes_path %>
+  <%= link_to "Back to recipes", recipes_path %>
 <div id="recipe-div">
   <h2 id="recipe-title">
     <%= @recipe.name %>
@@ -14,7 +14,7 @@
 <%# add functionality to generate shopping list %>
 <%# <%= button_to "Destroy this recipe", user_recipe_path(@recipe), method: :delete %>
 <div id="recipe-show-btns">
-  <%= link_to 'Add Food',new_user_recipe_food_path(user_id: current_user, id: @recipe), class:"btn d-flex btn-primary"%>
+  <%= link_to 'Add Food',new_recipe_food_path(user_id: current_user, id: @recipe), class:"btn d-flex btn-primary"%>
 </div>
 <table  class="table table-striped table-bordered m-5 w-75">
   <thead>
