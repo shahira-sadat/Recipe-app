@@ -18,7 +18,7 @@
   gap: 25px;
 }
 
-.recipe-link   {
+.recipe-link {
   color: #000;
   text-decoration: none;
 }
@@ -38,9 +38,11 @@
 #recipe-div {
   padding: 25px 10%;
 }
+
 #recipe-title {
   text-align: center;
 }
+
 #recipe-information {
   position: relative;
 }
@@ -76,7 +78,7 @@
   border-radius: 50px;
 }
 
-.public.active::before{
+.public.active::before {
   left: 52%;
   background-color: #fff;
 }

@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   load_and_authorize_resource
 
-
   protected
 
   def configure_permitted_parameters
