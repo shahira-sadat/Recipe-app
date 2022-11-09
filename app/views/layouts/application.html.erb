@@ -11,13 +11,10 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render 'layouts/header' %>
-    <h1 class= "m-2 d-flex justify-content-between align-items-center"> Recipe app</h1>
-    <a class= "mx-2 ">
-      <%= link_to 'food_list', foods_path %>
-    </a>
+    <% if current_user %>
+      <%= render partial: "shared/navbar" %>
+    <% end %>
+    <%= render partial: "shared/flash" %>
     <%= yield %>
   </body>
 </html>
