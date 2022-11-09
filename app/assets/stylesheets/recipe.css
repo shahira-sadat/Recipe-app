@@ -1,3 +1,4 @@
+/* recipe#index */
 .recipe-ul {
   width: 75%;
   padding: 50px;
@@ -31,4 +32,60 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* recipe#show */
+#recipe-div {
+  padding: 25px 10%;
+}
+#recipe-title {
+  text-align: center;
+}
+#recipe-information {
+  position: relative;
+}
+
+#precipe-public {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+.public {
+  position: relative;
+}
+
+.public::before {
+  position: absolute;
+  top: -14px;
+  left: 0;
+  content: '';
+  padding: 23px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 100%;
+}
+
+.public::after {
+  content: '';
+  padding: 12px 50px;
+  background-color: #555;
+  border: 5px solid #000;
+  border-radius: 50px;
+}
+
+.public.active::before{
+  left: 52%;
+  background-color: #fff;
+}
+
+.public.active::after {
+  background-color: #168437;
+}
+
+#recipe-show-btns {
+  display: flex;
+  justify-content: space-around;
 }
