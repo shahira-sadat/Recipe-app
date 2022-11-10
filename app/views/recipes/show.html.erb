@@ -38,10 +38,12 @@
  <% if @recipe.recipe_foods.length.positive? %>
       <% @recipe.recipe_foods.each do |food|%>
         <tr>
-          <td> <%= food.name%></td>
-          <td> <%= food.measurement_unit%></td>
-          <td> $ <%= food.price%></td>
-          <td><%= button_to 'delete', food_path(food.id), method: :delete, class:"btn btn-warning"%></td>
+          <td> <%= recipe_food.food.name%></td>
+          <td> <%= recipe_food.quantity%> <%= recipe_food.food.measurement_unit %></td>
+          <td> $ <%= recipe_food.food.price%></td>
+          <td>
+          <%= button_to 'delete', recipe_food_path(recipe_food.id), method: :delete, class:"btn btn-warning"%>
+          </td>
         </tr>
       <%end%>
     <% else %>
