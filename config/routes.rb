@@ -10,7 +10,6 @@ Rails.application.routes.draw do
    get 'logout', to: 'devise/sessions#destroy' 
   end
   root "recipes#public"
-  resources :inventories, only: [:index, :show, :new, :create, :destroy]
   resources :users do
     resources :recipes do
       resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
