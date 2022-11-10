@@ -3,14 +3,28 @@
   <h2>Recipe <%= @recipe.name %></h2>
 </div>
 <div>
-  <p>Amount of Food Items to buy: <%= @user.name %> </p>
-  <p>Total Value: </p>
+  <p>Amount of Food Items to buy: <%= @total_missing_food %> </p>
+  <p>Total Value: <%= @total_price %>$</p>
 </div>
-<ul>
-  <% @missing_food.each do |food| %>
-    <li>
-      <p>name: <%= food.food.name %></p>
-      <p>quantity: <%= food.quantity %></p>
-    </li>
-  <% end %>
-</ul>
+<table  class="table table-striped table-bordered m-5 w-75">
+  <thead>
+    <tr>
+      <th scope="col">Food </th>
+      <th>Recipe Quantity </th>
+      <th>User Quantity </th>
+      <th>Unit price </th>
+      <th>Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @missing_food.each do |food| %>
+      <tr>
+        <td> <%= food.food.name %></td>
+        <td> <%= food.quantity %></td>
+        <td> <%= food.food.quantity || 0 %></td>
+        <td> $ <%= food.food.price%></td>
+        <td><%= button_to 'delete', recipe_food_path(food.id), method: :delete, class:"btn btn-warning"%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

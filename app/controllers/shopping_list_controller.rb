@@ -1,14 +1,19 @@
 class ShoppingListController < ApplicationController
   def index
-    @user = User.find(current_user.id) 
-    @recipe = @user.recipes.find(params[:recipe])
+    @user_food = current_user.foods.all
+    @recipe = current_user.recipes.find(params[:recipe])
     @missing_food = []
     @total_price = 0
     @total_missing_food = 0
     @recipe.recipe_foods.each do |food|
-      next if (Food.find(food.food_id).quantity).nil?
-      next if (food.quantity) <= (Food.find(food.food_id).quantity)
-      @total_value += (food.quantity - Food.find(food.food_id).quantity) * food.food.price
+       if (@user_food.find(food.food_id).quantity).nil?
+        @total_price += (food.quantity) * food.food.price
+      @total_missing_food += 1
+      @missing_food << food
+      next
+    end
+      next if (food.quantity) <= (@user_food.find(food.food_id).quantity)
+      @total_price += (food.quantity - @user_food.find(food.food_id).quantity) * food.food.price
       @total_missing_food += 1
       @missing_food << food
     end
