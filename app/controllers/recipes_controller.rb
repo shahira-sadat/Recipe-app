@@ -1,16 +1,16 @@
 class RecipesController < ApplicationController
   def index
-   @recipes = Recipe.includes([:user]).where(user_id: current_user.id).order(created_at: :desc)
+    @recipes = Recipe.includes([:user]).where(user_id: current_user.id).order(created_at: :desc)
   end
 
-    def public
+  def public
     @public_recipes = Recipe.includes([:user]).where(public: true).order(created_at: :desc)
   end
 
   # GET /recipes/1 or /recipes/1.json
   def show
-   @recipe = Recipe.includes([:user]).find(params[:id])
-   end
+    @recipe = Recipe.includes([:user]).find(params[:id])
+  end
 
   # GET /recipes/new
   def new
