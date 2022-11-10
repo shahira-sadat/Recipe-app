@@ -1,10 +1,10 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
-  load_and_authorize_resource
-
-  # GET /recipes or /recipes.json
   def index
    @recipes = Recipe.includes([:user]).where(user_id: current_user.id).order(created_at: :desc)
+  end
+
+    def public
+    @public_recipes = Recipe.includes([:user]).where(public: true).order(created_at: :desc)
   end
 
   # GET /recipes/1 or /recipes/1.json
