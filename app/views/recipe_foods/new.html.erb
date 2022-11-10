@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <section class="d-flex flex-column align-items-center w-50 mx-auto">
   <h1 class="text-center">Add ingredient</h1>
     <%= form_with url: user_recipe_recipe_foods_path(params[:recipe_id]), method: :post, :html => {:class => "w-50 mt-4"} do |form| %>
@@ -11,45 +10,3 @@
       <button type="submit" class="btn btn-primary mt-3">Add</button>
     <% end %>
 </section>
-=======
-<h1>New recipe food</h1>
-
-<%= form_with(model: @recipe_food) do |form| %>
-  <% if @recipe_food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
-
-      <ul>
-        <% @recipe_food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div>
-    <%= form.label :food_name, style: "display: block" %>
-    <%= form.text_field :food_name %>
-  </div>
-
-  <div>
-    <%= form.hidden_field :recipe_id, value: params[:recipe_id] %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-
-<br>
-
-<div>
-  <%= link_to "Back to recipe foods", recipe_foods_path %>
-</div>
->>>>>>> 2d48845bf286d196ff572c299f73db948d4d6004
