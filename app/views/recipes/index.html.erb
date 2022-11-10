@@ -1,19 +1,31 @@
+<section class="d-flex flex-column align-items-center">
 <div class=" m-5 d-flex justify-content-between align-items-center w-75" >
-  <h1>Recipes</h1>
+  <h1 class="text-center mb-5">Recipes</h1>
   <%= link_to "New recipe", new_recipe_path, class:"btn d-flex btn-primary" %>
 </div>
-<ul class="recipe-ul">
+<% if @recipes.empty? %>
+  <h2 class="text-center">The list is empty.</h2>
+<% else %>
   <% @recipes.each do |recipe| %>
-    <li class="recipe-li">
-      <div class="recipe-li-div">
-        <%= link_to recipe_path(id: recipe), class: "recipe-link" do %>
-          <h2> <%= recipe.name %></h2>
+    <div class="card mb-3" style="width: 50rem;">
+      <div class="card-body d-flex space-between">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">
+              <%= link_to recipe_path(id: recipe), class: "recipe-link" do %>
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted"> <%= recipe.name %></h6>
+          <p class="mt-4"><%= recipe.description %></p>
+        </div>
         <% end %>
         <% if can? :destroy, recipe%>
-        <%= button_to "remove recipe", recipe_path(user_id: current_user,id: recipe), method: :delete %>
+        <%= button_to "remove recipe", recipe_path(user_id: current_user,id: recipe), method: :delete, class: "btn btn-danger m-3 ms-4" %>
         <% end %>
       </div>
-      <p class="recipe-p"><%= recipe.description %></p>
-    </li>
-  <%end%>
-</ul>
+      </div>
+      <% end %>
+    <% end %>
+</section>
+
+
+
+
