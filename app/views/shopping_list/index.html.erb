@@ -1,17 +1,16 @@
 <div class=" m-5 d-flex justify-content-between align-items-center w-75" >
   <h1>Shopping List</h1>
+  <h2>Recipe <%= @recipe.name %></h2>
 </div>
 <div>
   <p>Amount of Food Items to buy: <%= @user.name %> </p>
   <p>Total Value: </p>
 </div>
 <ul>
-  <% @foods.each do |food| %>
-  <li>
-
-  <p>name: <%= food.name %></p>
-  <p>price: <%= food.price %></p>
-  <p>quantity: <%= food.quantity %></p>
-  </li>
+  <% @missing_food.each do |food| %>
+    <li>
+      <p>name: <%= food.food.name %></p>
+      <p>quantity: <%= food.quantity %></p>
+    </li>
   <% end %>
 </ul>
