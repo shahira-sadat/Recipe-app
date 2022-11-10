@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'foods/index'
   resources :foods, only:[:index,:new,:create,:destroy]
+  resources :shopping_list, only:[:index]
   get 'users/index'
   get 'users/show'
   resources :recipes, except:[:update]
