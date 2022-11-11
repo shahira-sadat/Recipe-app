@@ -1,12 +1,11 @@
-<div class=" m-5 d-flex justify-content-between align-items-center w-75" >
+<div class="container-fluid w-50 d-flex flex-column align-items-center" >
   <h1>Shopping List</h1>
   <h2>Recipe <%= @recipe.name %></h2>
-</div>
-<div>
+<div class="container-fluid w-100 d-flex justify-content-between align-items-center my-4">
   <p>Amount of Food Items to buy: <%= @total_missing_food %> </p>
   <p>Total Value: <%= @total_price %>$</p>
 </div>
-<table  class="table table-striped table-bordered m-5 w-75">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th scope="col">Food </th>
@@ -28,4 +27,5 @@
     <%end%>
   </tbody>
 </table>
+</div>
 
