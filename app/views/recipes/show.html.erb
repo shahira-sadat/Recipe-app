@@ -18,6 +18,7 @@
       <% end %>
     </div>
   </div>
+  <% if can? :destroy, @recipe %>
   <div class="mt-5 d-flex justify-content-around">
     <%= link_to "Generate List", shopping_list_index_path(recipe: @recipe), class: "btn btn-danger" %>
     <%= link_to "Add ingredient", new_user_recipe_recipe_food_path(@recipe.user, @recipe), class: "btn btn-danger" %>
@@ -50,6 +51,7 @@
           <td>foods</td>
           <td>available</td>
         </tr>
+      <% end %>
       <% end %>
     </tbody>
   </table>

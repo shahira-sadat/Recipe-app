@@ -1,7 +1,7 @@
 class ShoppingListController < ApplicationController
   def index
-    @user_food = current_user.foods
-    @recipe = current_user.recipes
+    @user_food = current_user.foods.all
+    @recipe = current_user.recipes.find(params[:recipe])
     @missing_food = []
     @total_price = 0
     @total_missing_food = 0
@@ -19,19 +19,4 @@ class ShoppingListController < ApplicationController
       @missing_food << food
     end
   end
-  # @recipe = current_user.recipes
-  #     @food_amount = 0
-  #   @total_price = 0
-  #   @recipe_foods = []
-  #   @foods = current_user.foods
-  #   @recipes = current_user.recipes
-  #   @recipes.includes(:recipe_foods).each do |recipe|
-  #     recipe.recipe_foods.map do |food|
-  #       @recipe_foods << food
-  #     end
-  #   end
-  #   @recipe_foods.each do |f|
-  #     @total_price += f.food.price * f.quantity
-  #   end
-  # end
 end
